@@ -53,6 +53,41 @@ public class AddItemActivity extends AppCompatActivity {
         item_list_controller.loadItems(context);
     }
 
+    public boolean validateInput(String title_str, String maker_str, String description_str, String length_str, String width_str, String height_str) {
+
+        if (title_str.equals("")) {
+            title.setError("Empty field!");
+            return false;
+        }
+
+        if (maker_str.equals("")) {
+            maker.setError("Empty field!");
+            return false;
+        }
+
+        if (description_str.equals("")) {
+            description.setError("Empty field!");
+            return false;
+        }
+
+        if (length_str.equals("")) {
+            length.setError("Empty field!");
+            return false;
+        }
+
+        if (width_str.equals("")) {
+            width.setError("Empty field!");
+            return false;
+        }
+
+        if (height_str.equals("")) {
+            height.setError("Empty field!");
+            return false;
+        }
+
+        return true;
+    }
+
     public void saveItem (View view) {
 
         String title_str = title.getText().toString();
@@ -62,33 +97,7 @@ public class AddItemActivity extends AppCompatActivity {
         String width_str = width.getText().toString();
         String height_str = height.getText().toString();
 
-        if (title_str.equals("")) {
-            title.setError("Empty field!");
-            return;
-        }
-
-        if (maker_str.equals("")) {
-            maker.setError("Empty field!");
-            return;
-        }
-
-        if (description_str.equals("")) {
-            description.setError("Empty field!");
-            return;
-        }
-
-        if (length_str.equals("")) {
-            length.setError("Empty field!");
-            return;
-        }
-
-        if (width_str.equals("")) {
-            width.setError("Empty field!");
-            return;
-        }
-
-        if (height_str.equals("")) {
-            height.setError("Empty field!");
+        if (!validateInput(title_str, maker_str,description_str, length_str, width_str, height_str )) {
             return;
         }
 
